@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\LibroController;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
@@ -16,3 +17,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+$router->get('/libros', 'LibroController@index'  );
+$router->get('/libros/{id}', 'LibroController@ver'  );
+$router->delete('/libros/{id}', 'LibroController@eliminar'  );
+$router->post('/libros', 'libroController@guardar');
+
+$router->post('/libros/{id}', 'LibroController@actualizar'  );
